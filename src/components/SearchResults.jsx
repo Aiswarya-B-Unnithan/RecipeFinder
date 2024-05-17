@@ -4,10 +4,10 @@ import ClipLoader from 'react-spinners/ClipLoader';
 import { dummyRecipes } from '../assets/data/dummy';
 import { useNavigate } from 'react-router-dom';
 
-// Import RecipeDetails component
+
 const RecipeDetails = React.lazy(() => import('./ReceipeDetails'));
 
-const ITEMS_PER_PAGE = 9; // Number of recipes per page
+const ITEMS_PER_PAGE = 9;
 
 const SearchResults = () => {
   const { recipes, loading, error } = useSelector((state) => state.recipe);

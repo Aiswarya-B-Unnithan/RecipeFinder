@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromFavorites } from '../redux/slices/recipeSlice';
 import noFavoritesImage from '../assets/sad-cartoon-vector-chef_G1e7q1OO_SB_PM.jpg';
-import logo from '../assets/logo.jpg'; // Import your logo image here
+import logo from '../assets/logo.jpg'; 
 import { Link, useNavigate } from 'react-router-dom';
 
 const ITEMS_PER_PAGE = 9; // Number of favorite recipes per page
