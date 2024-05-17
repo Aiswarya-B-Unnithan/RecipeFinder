@@ -26,7 +26,7 @@ const SearchForm = () => {
         />
         <button
           type="submit"
-          className="bg-blue-500 text-white p-4 rounded-r-md hover:bg-blue-600"
+          className="bg-orange text-white p-4 rounded-r-md hover:bg-orange-600"
           style={{}} 
         >
           Search

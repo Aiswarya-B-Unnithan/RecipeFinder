@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from 'react'; // Import Suspense
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import ClipLoader from 'react-spinners/ClipLoader'; 
 import { dummyRecipes } from '../assets/data/dummy';
@@ -27,7 +27,7 @@ const SearchResults = () => {
   // Pagination logic
   const indexOfLastRecipe = currentPage * ITEMS_PER_PAGE;
   const indexOfFirstRecipe = indexOfLastRecipe - ITEMS_PER_PAGE;
-  const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+  const currentRecipes = recipes?.length > 0 ? recipes.slice(indexOfFirstRecipe, indexOfLastRecipe) : dummyRecipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -53,7 +53,7 @@ const SearchResults = () => {
         <>
           <h2 className="text-2xl font-bold mb-4">Your Search Results</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {currentRecipes.map((recipe) => (
+            {currentRecipes?.map((recipe) => (
               <div
                 key={recipe.id}
                 className="bg-white p-6 rounded-lg shadow-md cursor-pointer"
@@ -72,7 +72,7 @@ const SearchResults = () => {
           </div>
           {/* Pagination */}
           <div className="flex justify-center mt-4">
-            {Array.from({ length: Math.ceil(recipes.length / ITEMS_PER_PAGE) }).map((_, index) => (
+            {Array.from({ length: Math.ceil((recipes?.length || dummyRecipes.length) / ITEMS_PER_PAGE) }).map((_, index) => (
               <button key={index} onClick={() => paginate(index + 1)} className="mx-1 px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">
                 {index + 1}
               </button>
